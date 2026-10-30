@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anthropic Basecamp · Partner Edition</title>
+  <meta name="description" content="Anthropic Basecamp – Partner Edition with PwC. Activities, challenges and progress tracking.">
+  <meta name="theme-color" content="#FD5108">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FD5108'/%3E%3Cpath d='M8 23 16 9l8 14z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#activities" data-i18n="nav.skip">Skip to challenges</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Anthropic Basecamp × PwC">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <strong>Anthropic Basecamp</strong>
+          <span class="brand__sub">× PwC</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#activities" data-i18n="nav.activities">Challenges</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+        <button type="button" data-lang="en" lang="en">EN</button>
+        <button type="button" data-lang="pt" lang="pt">PT</button>
+        <button type="button" data-lang="de" lang="de">DE</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Partner Edition</p>
+          <h1 class="hero__title" data-i18n="hero.title">Anthropic Basecamp</h1>
+          <p class="hero__lead" data-i18n="hero.lead">Two days of hands-on building with Claude. Every activity comes with concrete challenges — tick them off as you complete them and watch your progress grow.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#activities" data-i18n="hero.cta">Start the challenges</a>
+            <a class="btn btn--ghost" href="#about" data-i18n="hero.secondary">How it works</a>
+          </div>
+        </div>
+        <aside class="progress-card" aria-labelledby="progress-title">
+          <p class="progress-card__label" id="progress-title" data-i18n="progress.title">Your progress</p>
+          <p class="progress-card__value"><span id="overall-pct">0</span><span class="pct">%</span></p>
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="overall-bar" aria-labelledby="progress-title">
+            <span class="bar__fill"></span>
+          </div>
+          <p class="progress-card__meta" id="overall-meta"></p>
+          <dl class="stats">
+            <div><dt data-i18n="stats.activities">Activities</dt><dd id="stat-activities">0</dd></div>
+            <div><dt data-i18n="stats.challenges">Challenges</dt><dd id="stat-challenges">0</dd></div>
+            <div><dt data-i18n="stats.done">Activities done</dt><dd id="stat-done">0</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title" data-i18n="about.title">How it works</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">01</span>
+            <h3 data-i18n="about.s1.title">Join the activity</h3>
+            <p data-i18n="about.s1.body">Each Basecamp session focuses on one theme — from prompting fundamentals to agents and responsible AI.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <h3 data-i18n="about.s2.title">Take on the challenges</h3>
+            <p data-i18n="about.s2.body">Work through the challenges for that activity, on your own or with your team.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <h3 data-i18n="about.s3.title">Check them off</h3>
+            <p data-i18n="about.s3.body">Mark each challenge as done. Progress is saved in this browser, so you can pick up where you left off.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="activities" id="activities" aria-labelledby="activities-title">
+      <div class="container">
+        <div class="activities__head">
+          <h2 class="section-title" id="activities-title" data-i18n="activities.title">Activities &amp; challenges</h2>
+          <div class="toolbar">
+            <div class="filter" role="group" aria-label="Filter" data-i18n-attr="aria-label:filter.label">
+              <button type="button" data-filter="all" data-i18n="filter.all">All</button>
+              <button type="button" data-filter="open" data-i18n="filter.open">To do</button>
+              <button type="button" data-filter="done" data-i18n="filter.done">Done</button>
+            </div>
+            <button type="button" class="link-btn" id="reset" data-i18n="actions.reset">Reset progress</button>
+          </div>
+        </div>
+        <div id="activity-list" class="activity-list"></div>
+        <p class="empty" id="empty" hidden data-i18n="filter.empty">Nothing to show for this filter.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p><strong>Anthropic Basecamp</strong> · <span data-i18n="hero.eyebrow">Partner Edition</span> · PwC</p>
+      <p class="footer__note" data-i18n="footer.note">Progress is stored locally in your browser and is not shared.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
