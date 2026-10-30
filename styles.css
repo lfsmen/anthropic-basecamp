@@ -223,6 +223,10 @@ button { font: inherit; cursor: pointer; }
   .nav { display: none; }
   .topbar__inner { min-height: 64px; gap: 12px; }
   .brand__sub { display: none; }
+  .brand { min-width: 0; }
+  .brand__text strong { font-size: 15px; }
+  .lang { flex: none; }
+  .lang button { padding: 8px 10px; }
   .hero__lead { font-size: 18px; }
   .progress-card { padding: 24px; }
   .progress-card__value { font-size: 64px; }

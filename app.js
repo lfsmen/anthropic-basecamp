@@ -201,11 +201,14 @@
   document.querySelectorAll("[data-lang]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       lang = btn.getAttribute("data-lang");
-      save(STORE_LANG, lang);
-      var url = new URL(location.href);
-      url.searchParams.set("lang", lang);
-      history.replaceState(null, "", url);
       render();
+      save(STORE_LANG, lang);
+      // Keep ?lang= in the address bar for sharing; some embedded viewers forbid this.
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set("lang", lang);
+        history.replaceState(null, "", url);
+      } catch (e) { /* ignore */ }
     });
   });
 
